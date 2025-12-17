@@ -1,12 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import ResultModal from "./ResultModal";
-import { JSX } from "react/jsx-runtime";
 
 export default function DiceComponent() {
   const [score, setScore] = useState(0);
-  const [selectedDice, setSelectedDice] = useState(null);
-  const [rolledDice, setRolledDice] = useState(null);
+  const [selectedDice, setSelectedDice] = useState<number | null>(null);
+  const [rolledDice, setRolledDice] = useState<number | null>(null);
   const [isRolling, setIsRolling] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [won, setWon] = useState(false);
@@ -16,12 +15,19 @@ export default function DiceComponent() {
 
   const diceNumbers = [1, 2, 3, 4, 5, 6];
 
-  const DiceDots = ({ number, size = "normal" }) => {
+  type Size = "normal" | "large";
+
+  interface DiceDotsProps {
+    value: number;
+    size?: Size;
+  }
+
+  const DiceDots: React.FC<DiceDotsProps> = ({ value, size = "normal" }) => {
     const dotClass = size === "large" ? "w-4 h-4" : "w-2.5 h-2.5";
 
     const renderDots = () => {
       const dots: JSX.Element[] = [];
-      const positions = {
+      const positions: Record<number, number[][]> = {
         1: [[50, 50]],
         2: [
           [25, 25],
@@ -55,7 +61,7 @@ export default function DiceComponent() {
         ],
       };
 
-      positions[number]?.forEach((pos, idx) => {
+      positions[value]?.forEach((pos, idx) => {
         dots.push(
           <div
             key={idx}
@@ -74,7 +80,15 @@ export default function DiceComponent() {
     return <>{renderDots()}</>;
   };
 
-  const DiceFace = ({
+  interface DiceFaceProps {
+    number: number;
+    isSelected?: boolean;
+    onClick?: () => void;
+    isResult?: boolean;
+    size?: Size;
+  }
+
+  const DiceFace: React.FC<DiceFaceProps> = ({
     number,
     isSelected,
     onClick,
@@ -107,7 +121,7 @@ export default function DiceComponent() {
       >
         <div className="absolute inset-1 bg-gradient-to-br from-white/40 to-transparent rounded-xl z-0 pointer-events-none"></div>
         <div className="relative bg-indigo-50 rounded-xl border-2 border-indigo-950 z-10 w-full h-full">
-          <DiceDots number={number} size={size} />
+          <DiceDots value={number} size={size} />
         </div>
         {isSelected && (
           <div className="absolute -top-3 z-50 -right-2 w-8 h-8 bg-gradient-to-br from-green-400 to-green-800 rounded-full flex items-center justify-center border-2 border-white shadow-lg animate-pulse">
@@ -135,7 +149,7 @@ export default function DiceComponent() {
     </div>
   );
 
-  const handleDiceSelect = (num) => {
+  const handleDiceSelect = (num: number) => {
     if (!isRolling && !gameOver && !won) {
       setSelectedDice(num);
     }
