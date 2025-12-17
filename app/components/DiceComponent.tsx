@@ -26,7 +26,7 @@ export default function DiceComponent() {
     const dotClass = size === "large" ? "w-4 h-4" : "w-2.5 h-2.5";
 
     const renderDots = () => {
-      const dots: JSX.Element[] = [];
+      const dots: React.ReactElement[] = [];
       const positions: Record<number, number[][]> = {
         1: [[50, 50]],
         2: [
