@@ -44,7 +44,7 @@
 Clone the repo and install dependencies:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/AbdurRahman-202416/lucky-dice
 cd lucky-dice
 npm install
 ```
@@ -97,10 +97,6 @@ Please follow standard GitHub PR etiquette and create descriptive commit message
 This project can be licensed under **MIT** (or any license you prefer). Add a `LICENSE` file if you want to publish this repository publicly.
 
 ---
-
-## ✉️ Contact
-
-For questions, ideas, or help: open an issue or PR on the repo.
 
 ---
 
