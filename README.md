@@ -2,7 +2,7 @@
 
 ## 📸 Demo
 
-![Lucky Dice demo](./demo.png)
+![Lucky Dice demo](./public/demo.png)
 
 
 
