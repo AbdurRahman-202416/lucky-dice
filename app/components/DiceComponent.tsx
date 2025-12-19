@@ -181,9 +181,9 @@ export default function DiceComponent() {
             newScore += 2;
             setMessage("🎉 Match! +2");
           } else {
-            newScore -= 2;
+            newScore -= 0.5;
 
-            setMessage("💥Wrong! -2 Points");
+            setMessage("💥Wrong! -0.5 Points");
           }
 
           setScore(newScore);
@@ -218,7 +218,7 @@ export default function DiceComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-green-900 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-20 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl animate-pulse"></div>
@@ -234,8 +234,8 @@ export default function DiceComponent() {
           <h1 className=" text-2xl sm:text-6xl font-black mb-3 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-lg animate-pulse">
             LUCKY DICE MASTER
           </h1>
-          <p className="text-sm sm:text-xl text-gray-300 font-semibold tracking-wide">
-            Match the dice and reach 10 points to win!
+          <p className="text-sm sm:text-xl max-w-full sm:max-w-[70%] bg-orange-900 font-bold  mx-auto text-gray-300 shadow-md rounded-2xl  py-0.5 shadow-gray-800 tracking-wide">
+            Match the dice and reach score 20 points to win!
           </p>
         </div>
 
