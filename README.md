@@ -1,5 +1,11 @@
 # Lucky Dice 🎲
 
+## 📸 Demo
+
+![Lucky Dice demo](./demo.png)
+
+
+
 **Lucky Dice** is a small, fun web app built with **Next.js** and **TypeScript** that simulates rolling dice. It focuses on a clean, responsive UI and simple gameplay mechanics so users can "try their luck" by rolling virtual dice and viewing results in a modal.
 
 ---
